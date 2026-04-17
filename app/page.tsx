@@ -1,10 +1,13 @@
 import Link from 'next/link';
-import { ArrowRight, Globe, TrendingUp, Users, Zap } from 'lucide-react';
+import { ArrowRight, Globe, TrendingUp, Users, Zap, Menu, X } from 'lucide-react';
+import { useState } from 'react';
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <main className="min-h-screen bg-[#F0EEE9] font-sans text-[#939597] selection:bg-[#F5DF4D] selection:text-black">
-      {/* Sanity-inspired Navigation */}
+      {/* Navigation */}
       <nav className="fixed top-0 w-full z-[100] bg-[#F0EEE9]/80 backdrop-blur-xl border-b border-[#939597]/10">
         <div className="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-4 group">
@@ -12,14 +15,11 @@ export default function Home() {
               src="/Conectas Logo.png" 
               alt="Conectas Logo" 
               className="h-10 w-auto transition-transform group-hover:scale-105"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                e.currentTarget.nextElementSibling?.classList.remove('hidden');
-              }}
             />
-            <span className="hidden font-black text-2xl tracking-tighter text-[#00589B] group-hover:text-black transition-colors uppercase">CONECTAS</span>
+            <span className="hidden sm:block font-black text-2xl tracking-tighter text-[#00589B] group-hover:text-black transition-colors uppercase">CONECTAS</span>
           </Link>
 
+          {/* Desktop Links */}
           <div className="hidden lg:flex items-center gap-10 text-[11px] font-black uppercase tracking-[0.2em]">
             <Link href="#comunidade" className="hover:text-[#CF5C78] transition-colors">Comunidade</Link>
             <Link href="#capital" className="hover:text-[#F5DF4D] transition-colors">Capital</Link>
@@ -34,130 +34,102 @@ export default function Home() {
             >
               Entrar
             </Link>
+            <button className="lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="lg:hidden bg-[#F0EEE9] border-b border-[#939597]/10 px-6 py-8 flex flex-col gap-6 text-sm font-black uppercase tracking-widest animate-in fade-in slide-in-from-top-4">
+            <Link href="#comunidade" onClick={() => setIsMenuOpen(false)}>Comunidade</Link>
+            <Link href="#capital" onClick={() => setIsMenuOpen(false)}>Capital</Link>
+            <Link href="#cultura" onClick={() => setIsMenuOpen(false)}>Cultura</Link>
+            <Link href="#impacto" onClick={() => setIsMenuOpen(false)}>Impacto</Link>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
       <section className="pt-40 pb-20 px-6">
         <div className="max-w-[1440px] mx-auto">
-          <div className="max-w-[900px]">
-            <h1 className="text-[clamp(3rem,8vw,6rem)] leading-[0.9] font-black text-black tracking-[-0.04em] mb-12 uppercase">
-              Criando a cultura, <br />
-              <span className="text-[#00589B]">capital e comunidade</span> <br />
-              da nova economia.
+          <div className="max-w-[1000px]">
+            <h1 className="text-[clamp(3rem,8vw,7rem)] leading-[0.9] font-black text-black tracking-[-0.04em] mb-12 uppercase animate-in fade-in slide-in-from-bottom-8 duration-700">
+              Transformando a <br />
+              <span className="text-[#00589B]">nova economia</span> <br />
+              através do impacto.
             </h1>
-            <p className="text-2xl md:text-3xl leading-snug font-medium text-[#939597] max-w-[700px] mb-12">
+            <p className="text-2xl md:text-3xl leading-snug font-medium text-[#939597] max-w-[700px] mb-12 animate-in fade-in slide-in-from-bottom-12 duration-700 delay-100">
               Fortalecemos iniciativas de impacto socioambiental através de um diálogo qualificado entre governos, financiadores e a sociedade.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <button className="px-8 py-4 bg-[#F5DF4D] text-black font-black uppercase tracking-widest text-sm rounded-full hover:scale-105 transition-transform flex items-center gap-2">
-                Começar Agora <ArrowRight size={18} />
-              </button>
+            <div className="flex flex-wrap gap-4 animate-in fade-in slide-in-from-bottom-16 duration-700 delay-200">
+              <Link 
+                href="/login"
+                className="px-10 py-5 bg-[#F5DF4D] text-black font-black uppercase tracking-widest text-base rounded-full hover:scale-105 transition-transform flex items-center gap-3 shadow-xl"
+              >
+                Entrar na Plataforma
+                <ArrowRight size={20} />
+              </Link>
+              <Link 
+                href="#saiba-mais"
+                className="px-10 py-5 border-2 border-black text-black font-black uppercase tracking-widest text-base rounded-full hover:bg-black hover:text-white transition-all flex items-center gap-3"
+              >
+                Saiba Mais
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Grid Pillars - Sanity Style */}
-      <section className="py-20 px-6 border-t border-[#939597]/10">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
-          <div className="bg-white p-12 group hover:bg-[#F5DF4D] transition-colors duration-500">
-            <div className="mb-8 text-black group-hover:scale-110 transition-transform origin-left">
-              <Users size={48} strokeWidth={2.5} />
-            </div>
-            <h3 className="text-3xl font-black text-black uppercase mb-4">Comunidade</h3>
-            <p className="text-lg font-medium leading-relaxed group-hover:text-black/80">
-              Conectamos a Geração Z e criativos da moda com o propósito de transformar a economia através da colaboração radical.
-            </p>
-          </div>
-
-          <div className="bg-white p-12 group hover:bg-[#00A0B0] transition-colors duration-500">
-            <div className="mb-8 text-black group-hover:text-white transition-colors group-hover:scale-110 transition-transform origin-left">
-              <TrendingUp size={48} strokeWidth={2.5} />
-            </div>
-            <h3 className="text-3xl font-black text-black group-hover:text-white uppercase mb-4">Capital</h3>
-            <p className="text-lg font-medium leading-relaxed group-hover:text-white/80 transition-colors">
-              Direcionamos recursos para negócios de impacto que priorizam o bem-estar social e a regeneração ambiental.
-            </p>
-          </div>
-
-          <div className="bg-white p-12 group hover:bg-[#CF5C78] transition-colors duration-500">
-            <div className="mb-8 text-black group-hover:text-white transition-colors group-hover:scale-110 transition-transform origin-left">
-              <Globe size={48} strokeWidth={2.5} />
-            </div>
-            <h3 className="text-3xl font-black text-black group-hover:text-white uppercase mb-4">Cultura</h3>
-            <p className="text-lg font-medium leading-relaxed group-hover:text-white/80 transition-colors">
-              Moldamos as narrativas da nova economia através da arte, design e inovação institucional.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Special Colors Detail Section */}
-      <section className="py-20 bg-[#939597] text-white px-6">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div>
-            <span className="text-[12px] font-black uppercase tracking-[0.3em] text-[#F5DF4D] mb-6 block">Nosso Impacto</span>
-            <h2 className="text-5xl md:text-7xl font-black uppercase leading-none tracking-tighter mb-8">
-              Diálogo qualificado <br /> com o poder.
-            </h2>
-            <p className="text-xl md:text-2xl text-white/80 leading-relaxed mb-10">
-              Articulamos parcerias estratégicas entre o terceiro setor, governos e investidores para escalar soluções reais para crises climáticas e sociais.
-            </p>
-            <div className="grid grid-cols-2 gap-8">
-              <div className="border-l-4 border-[#BA5B3F] pl-6 py-2">
-                <div className="text-4xl font-black mb-1">20+</div>
-                <div className="text-sm font-bold uppercase tracking-widest text-white/60">Projetos Ativos</div>
-              </div>
-              <div className="border-l-4 border-[#8F4584] pl-6 py-2">
-                <div className="text-4xl font-black mb-1">15M</div>
-                <div className="text-sm font-bold uppercase tracking-widest text-white/60">Capital Mobilizado</div>
-              </div>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="aspect-[4/5] bg-black/10 rounded-2xl overflow-hidden border border-white/10 backdrop-blur-3xl flex items-center justify-center">
-               <Zap size={120} className="text-[#F5DF4D] animate-pulse" />
-            </div>
+      {/* Grid Section */}
+      <section className="py-20 px-6 bg-white/50" id="comunidade">
+        <div className="max-w-[1440px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <FeatureCard 
+              icon={<Globe className="text-[#00A0B0]" />}
+              title="Global"
+              description="Conectamos redes globais de impacto com soluções locais."
+              color="border-[#00A0B0]"
+            />
+            <FeatureCard 
+              icon={<TrendingUp className="text-[#F5DF4D]" />}
+              title="Capital"
+              description="Mapeamento e mobilização de capital para causas sociais."
+              color="border-[#F5DF4D]"
+            />
+            <FeatureCard 
+              icon={<Users className="text-[#CF5C78]" />}
+              title="Comunidade"
+              description="Fortalecimento institucional de organizações sociais."
+              color="border-[#CF5C78]"
+            />
+            <FeatureCard 
+              icon={<Zap className="text-[#8F4584]" />}
+              title="Cultura"
+              description="Disseminação da cultura de doação e investimento social."
+              color="border-[#8F4584]"
+            />
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-white py-20 px-6 border-t border-[#939597]/10">
-        <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-start gap-20">
-          <div>
-            <Link href="/" className="font-black text-3xl tracking-tighter text-black uppercase mb-8 block">CONECTAS</Link>
-            <p className="text-[#939597] max-w-[300px] font-medium">
-              Transformando o futuro através do capital consciente e cultura regenerativa.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-16">
-            <div className="flex flex-col gap-4">
-              <span className="font-black uppercase text-[11px] tracking-widest text-black">Explorar</span>
-              <Link href="#" className="text-sm hover:text-black">Manifesto</Link>
-              <Link href="#" className="text-sm hover:text-black">Impacto</Link>
-              <Link href="#" className="text-sm hover:text-black">Labs</Link>
-            </div>
-            <div className="flex flex-col gap-4">
-              <span className="font-black uppercase text-[11px] tracking-widest text-black">Conecte-se</span>
-              <Link href="#" className="text-sm hover:text-black">LinkedIn</Link>
-              <Link href="#" className="text-sm hover:text-black">Instagram</Link>
-              <Link href="#" className="text-sm hover:text-black">Twitter</Link>
-            </div>
-            <div className="flex flex-col gap-4">
-              <span className="font-black uppercase text-[11px] tracking-widest text-black">Legal</span>
-              <Link href="#" className="text-sm hover:text-black">Privacidade</Link>
-              <Link href="#" className="text-sm hover:text-black">Termos</Link>
-            </div>
-          </div>
-        </div>
-        <div className="max-w-[1440px] mx-auto mt-20 pt-10 border-t border-[#939597]/10 text-[10px] font-bold uppercase tracking-widest flex justify-between">
-          <span>© 2024 Conectas. Todos os direitos reservados.</span>
-          <span className="text-[#BA5B3F]">Desenvolvido para a Nova Economia</span>
-        </div>
+      <footer className="py-10 border-t border-[#939597]/10 text-center text-[10px] font-black uppercase tracking-widest">
+        <p>© 2024 CONECTAS - Todos os direitos reservados.</p>
       </footer>
     </main>
+  );
+}
+
+function FeatureCard({ icon, title, description, color }: { icon: any, title: string, description: string, color: string }) {
+  return (
+    <div className={`p-8 bg-white border-b-4 ${color} rounded-2xl hover:shadow-2xl transition-all hover:-translate-y-2 group`}>
+      <div className="mb-6 p-4 bg-[#F0EEE9] w-fit rounded-xl group-hover:scale-110 transition-transform">
+        {icon}
+      </div>
+      <h3 className="text-xl font-black text-black mb-4 uppercase">{title}</h3>
+      <p className="text-sm leading-relaxed">{description}</p>
+    </div>
   );
 }
