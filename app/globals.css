@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #194B64;
+  --secondary: #E9CD6A;
+}
+
+body {
+  color: #194B64;
+  background: white;
+}
