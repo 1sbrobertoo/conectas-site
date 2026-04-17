@@ -14,6 +14,8 @@
     "react-dom": "^18.2.0",
     "next-sanity": "^7.1.4",
     "@sanity/client": "^6.12.4",
+    "sanity": "^3.0.0",
+    "@sanity/vision": "^3.0.0",
     "lucide-react": "^0.331.0",
     "clsx": "^2.1.0",
     "tailwind-merge": "^2.2.1"
