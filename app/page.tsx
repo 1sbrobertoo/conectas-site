@@ -2,42 +2,34 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white font-sans text-[#1A1A1A] selection:bg-red-100 selection:text-red-900">
-      {/* Navigation (Sanity.io Style) */}
-      <nav className="fixed top-0 w-full z-[100] bg-white border-b border-[#F0F0F0]">
-        <div className="max-w-[1440px] mx-auto px-6 h-[72px] flex items-center justify-between">
-          <div className="flex items-center gap-10">
-            <Link href="/" className="flex items-center gap-2 group">
-              {/* Use the logo provided by the user */}
-              <img 
-                src="/Conectas Logo.png" 
-                alt="Conectas Logo" 
-                className="h-8 w-auto" 
-                onError={(e) => {
-                  // Fallback to text if image fails (e.g. not in public folder yet)
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                }}
-              />
-              <span className="hidden font-bold text-xl tracking-tight text-[#1A1A1A]">Conectas</span>
-            </Link>
-            
-            <div className="hidden lg:flex items-center gap-8 text-[14px] font-semibold text-[#666666]">
-              <Link href="#" className="hover:text-black transition-colors">Produtos</Link>
-              <Link href="#" className="hover:text-black transition-colors">Soluções</Link>
-              <Link href="#" className="hover:text-black transition-colors">Empresa</Link>
-              <Link href="#" className="hover:text-black transition-colors">Recursos</Link>
-              <Link href="#" className="hover:text-black transition-colors">Pricing</Link>
-            </div>
+    <main className="min-h-screen bg-[#F0EEE9] font-sans text-[#939597] selection:bg-[#F5DF4D] selection:text-black">
+      {/* Aesthetic Navigation */}
+      <nav className="fixed top-0 w-full z-[100] bg-[#F0EEE9]/90 backdrop-blur-xl border-b border-[#939597]/10">
+        <div className="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-4 group">
+            <img 
+              src="/Conectas Logo.png" 
+              alt="Conectas Logo" 
+              className="h-10 w-auto transition-transform group-hover:scale-105" 
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.nextElementSibling?.classList.remove('hidden');
+              }}
+            />
+            <span className="hidden font-black text-2xl tracking-tighter text-[#00589B]">CONECTAS</span>
+          </Link>
+          
+          <div className="hidden lg:flex items-center gap-12 text-[11px] font-black uppercase tracking-[0.3em] text-[#00589B]">
+            <Link href="#comunidade" className="hover:text-[#CF5C78] transition-colors">Comunidade</Link>
+            <Link href="#capital" className="hover:text-[#F5DF4D] transition-colors">Capital</Link>
+            <Link href="#cultura" className="hover:text-[#00A0B0] transition-colors">Cultura</Link>
+            <Link href="#impacto" className="hover:text-[#8F4584] transition-colors">Impacto</Link>
           </div>
 
-          <div className="flex items-center gap-4">
-            <button className="hidden sm:inline-flex px-4 py-2 text-[14px] font-bold text-[#1A1A1A] hover:bg-gray-50 rounded-lg transition-colors">
-              Log in
-            </button>
+          <div className="flex items-center gap-6">
             <Link 
               href="/login" 
-              className="inline-flex items-center justify-center bg-[#F03E2F] text-white px-6 py-2.5 rounded-lg text-[14px] font-bold hover:bg-[#D63528] active:scale-[0.98] transition-all shadow-sm"
+              className="bg-[#F5DF4D] text-[#00589B] px-8 py-3 rounded-full text-[11px] font-black uppercase tracking-widest hover:bg-[#00589B] hover:text-white transition-all shadow-2xl shadow-[#F5DF4D]/40 active:scale-95 border-2 border-transparent hover:border-white"
             >
               Entrar
             </Link>
@@ -45,71 +37,94 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section: Minimalist & High Contrast */}
-      <section className="relative pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden">
-        <div className="max-w-[1440px] mx-auto px-6 flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-2 bg-[#F7F7F7] border border-[#EEEEEE] rounded-full px-4 py-1.5 mb-8 animate-fade-in">
-            <span className="text-[12px] font-bold text-[#666666] uppercase tracking-wider">Conectas Enterprise v3.0</span>
-            <div className="w-1 h-1 rounded-full bg-[#F03E2F]" />
-          </div>
-          
-          <h1 className="text-[56px] md:text-[92px] font-black text-[#1A1A1A] leading-[0.95] mb-8 max-w-[1000px] tracking-[-0.04em]">
-            A base de dados para o seu <span className="text-[#F03E2F]">Impacto.</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-[#666666] max-w-2xl mb-12 leading-relaxed font-medium tracking-tight">
-            Navegue no cenário regulatório, mapeie stakeholders e direcione capital com a inteligência que o novo mercado brasileiro exige.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/login" className="bg-[#1A1A1A] text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-black transition-all">
-              Começar Agora
-            </Link>
-            <button className="bg-white border border-[#EBEBEB] text-[#1A1A1A] px-10 py-5 rounded-xl font-bold text-lg hover:border-[#CCCCCC] transition-all">
-              Ver Demonstração
-            </button>
-          </div>
-        </div>
-
-        {/* Subtle Visual Element (like Sanity's grid/blobs) */}
-        <div className="mt-20 max-w-5xl mx-auto px-6">
-          <div className="aspect-[16/9] bg-[#F9F9F9] rounded-[40px] border border-[#F0F0F0] shadow-inner relative overflow-hidden group">
-             {/* Mock Dashboard Representation */}
-             <div className="absolute inset-10 bg-white rounded-2xl shadow-2xl border border-[#F0F0F0] p-8 transition-transform group-hover:scale-[1.01] duration-500">
-                <div className="flex gap-4 mb-6">
-                   <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
-                   <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
-                   <div className="w-3 h-3 rounded-full bg-[#28C840]" />
-                </div>
-                <div className="space-y-4">
-                   <div className="h-8 w-1/3 bg-[#F7F7F7] rounded-lg" />
-                   <div className="grid grid-cols-3 gap-4">
-                      <div className="h-32 bg-[#F7F7F7] rounded-xl" />
-                      <div className="h-32 bg-[#F7F7F7] rounded-xl" />
-                      <div className="h-32 bg-[#F7F7F7] rounded-xl" />
-                   </div>
-                </div>
-             </div>
+      {/* Hero Section: Gen Z Aesthetic & High Performance */}
+      <section className="relative pt-48 pb-24 md:pt-72 md:pb-48 overflow-hidden">
+        {/* Branding Blobs */}
+        <div className="absolute top-0 right-[-10%] w-[800px] h-[800px] bg-[#F5DF4D]/25 rounded-full blur-[140px] animate-pulse" />
+        <div className="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-[#CF5C78]/20 rounded-full blur-[120px]" />
+        
+        <div className="relative z-10 max-w-[1440px] mx-auto px-6">
+          <div className="max-w-5xl">
+            <div className="inline-flex items-center gap-3 bg-white/50 backdrop-blur-sm border border-[#939597]/20 rounded-full px-6 py-2 mb-10">
+              <span className="text-[10px] font-black text-[#CF5C78] uppercase tracking-[0.4em]">Nova Economia</span>
+              <div className="w-2 h-2 rounded-full bg-[#F5DF4D] animate-ping" />
+            </div>
+            
+            <h1 className="text-7xl md:text-[140px] font-black leading-[0.82] tracking-[-0.07em] text-[#00589B] mb-12 uppercase">
+              Criar <span className="text-white drop-shadow-[4px_4px_0_#F5DF4D]">Cultura</span>, <br />
+              Capital e <span className="text-[#00A0B0]">Comunidade</span>.
+            </h1>
+            
+            <p className="text-2xl md:text-4xl text-[#939597] font-black leading-[1.1] max-w-3xl tracking-tight mb-16 uppercase">
+              Dinamizamos inovação e impacto para quem executa o futuro. Transformamos boas intenções em legitimidade institucional.
+            </p>
+            
+            <div className="flex flex-wrap gap-8">
+              <button className="bg-[#00589B] text-white px-14 py-7 rounded-[32px] font-black text-[13px] uppercase tracking-[0.3em] hover:bg-[#00A0B0] transition-all shadow-[0_30px_60px_-15px_rgba(0,88,155,0.4)] active:scale-95">
+                Nossos Projetos
+              </button>
+              <button className="bg-transparent border-[6px] border-[#00589B] text-[#00589B] px-14 py-7 rounded-[32px] font-black text-[13px] uppercase tracking-[0.3em] hover:bg-[#00589B] hover:text-white transition-all active:scale-95">
+                Dinamize Agora
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Feature Grid: Clean & Modular */}
-      <section className="py-32 px-6 bg-white border-t border-[#F0F0F0]">
-        <div className="max-w-[1440px] mx-auto">
-          <div className="grid lg:grid-cols-3 gap-12">
+      {/* Brand Essence: Modular Grid */}
+      <section className="py-48 bg-white overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-32 items-center">
+            <div className="space-y-16">
+              <h2 className="text-6xl md:text-8xl font-black tracking-[-0.06em] text-[#00589B] leading-[0.85] uppercase">
+                Onde a estratégia encontra a <span className="text-[#BA5B3F]">ação</span>.
+              </h2>
+              <p className="text-2xl text-[#939597] font-bold leading-relaxed tracking-tight">
+                A Conectas é uma dinamizadora de inovação e impacto que atua conectando estratégia, capital e políticas públicas.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-[#939597]">
+                {[
+                  { title: 'PROJETOS', color: '#F5DF4D', text: 'Desenvolvimento socioambiental e estruturação de negócios de impacto.' },
+                  { title: 'ADVOCACY', color: '#CF5C78', text: 'Estratégias de posicionamento institucional e diálogo qualificado.' }
+                ].map((item, i) => (
+                  <div key={i} className="space-y-6 group">
+                    <div className="h-1 w-20 bg-[#F0EEE9] group-hover:w-full transition-all duration-700" style={{ backgroundColor: item.color }} />
+                    <h4 className="font-black text-[#00589B] text-xl tracking-tighter uppercase">{item.title}</h4>
+                    <p className="text-sm font-black uppercase tracking-wider">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="aspect-[3/4] bg-[#00589B] rounded-[80px] rotate-2 shadow-2xl relative overflow-hidden group border-[12px] border-[#F0EEE9]">
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/60" />
+                <div className="absolute bottom-20 left-12 right-12">
+                   <p className="text-6xl font-black text-white leading-none tracking-tighter">IMPACTO <br/>MENSURÁVEL.</p>
+                </div>
+              </div>
+              <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-[#CF5C78] rounded-full flex items-center justify-center -rotate-12 border-[10px] border-white shadow-2xl z-20">
+                <span className="text-white font-black text-center text-xs leading-none uppercase tracking-[0.2em]">Sustentável<br/>& Legítimo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pillars Section */}
+      <section id="comunidade" className="py-48 bg-[#F0EEE9]">
+        <div className="max-w-[1440px] mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-2 border-4 border-[#00589B] rounded-[60px] overflow-hidden bg-[#00589B]">
             {[
-              { title: 'Public Affairs', desc: 'Monitoramento automatizado de processos legislativos com análise de risco integrada.', icon: '⚡' },
-              { title: 'Stakeholder Graph', desc: 'Identifique os verdadeiros centros de influência em tempo real através de grafos relacionais.', icon: '🕸️' },
-              { title: 'Impact Intelligence', desc: 'Aceleramos sua tomada de decisão em investimentos de impacto com dados estruturados.', icon: '📈' }
-            ].map((feature, i) => (
-              <div key={i} className="group p-8 rounded-3xl hover:bg-[#F9F9F9] transition-all duration-300">
-                <div className="text-4xl mb-6">{feature.icon}</div>
-                <h3 className="text-2xl font-bold mb-4 tracking-tight">{feature.title}</h3>
-                <p className="text-[#666666] leading-relaxed mb-6 font-medium">{feature.desc}</p>
-                <Link href="#" className="text-black font-bold text-sm inline-flex items-center gap-2">
-                  Saiba mais <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </Link>
+              { title: 'Cultura', color: '#F5DF4D', desc: 'Dinamizando comportamentos e narrativas para a nova era.' },
+              { title: 'Capital', color: '#CF5C78', desc: 'Conectando estratégia e financiamento para fortalecer ecossistemas.' },
+              { title: 'Comunidade', color: '#00A0B0', desc: 'Construindo pontes entre governos, financiadores e sociedade.' }
+            ].map((p, i) => (
+              <div key={i} className="bg-white p-20 hover:bg-[#F0EEE9] transition-all duration-500 group">
+                <span className="font-black text-xs uppercase tracking-[0.5em] mb-12 block" style={{ color: p.color }}>Pilar 0{i+1}</span>
+                <h3 className="text-6xl font-black tracking-[-0.05em] text-[#00589B] mb-10 group-hover:scale-105 transition-transform uppercase">{p.title}</h3>
+                <p className="text-lg font-bold text-[#939597] uppercase leading-tight">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -117,46 +132,33 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white py-24 px-6 border-t border-[#F0F0F0]">
-        <div className="max-w-[1440px] mx-auto grid md:grid-cols-4 gap-16 mb-20">
-          <div className="col-span-1 md:col-span-2 space-y-6">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-[#1A1A1A] rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg leading-none">C</span>
-              </div>
-              <span className="font-bold text-xl tracking-tight text-[#1A1A1A]">Conectas</span>
-            </Link>
-            <p className="max-w-xs text-[#666666] font-medium leading-relaxed">
-              Transformando a forma como organizações brasileiras se posicionam e geram impacto.
+      <footer className="bg-white pt-48 pb-20 border-t-8 border-[#00589B]">
+        <div className="max-w-[1440px] mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-24 mb-32">
+            <div className="space-y-12">
+              <Link href="/" className="flex items-center gap-4">
+                <img src="/Conectas Logo.png" alt="Conectas Logo" className="h-16 w-auto" />
+                <span className="font-black text-4xl tracking-tighter text-[#00589B]">CONECTAS</span>
+              </Link>
+              <h2 className="text-5xl md:text-7xl font-black text-[#00589B] leading-[0.9] tracking-[-0.05em] uppercase">
+                Dinamizando a <br/> <span className="text-[#F5DF4D]">Nova Economia</span>.
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-32">
+               <div className="space-y-10">
+                  <h4 className="text-[10px] font-black text-[#CF5C78] uppercase tracking-[0.5em]">Social</h4>
+                  <ul className="space-y-6 font-black text-[#00589B] text-sm uppercase tracking-widest">
+                    <li><Link href="#" className="hover:text-[#F5DF4D] transition-colors">LinkedIn</Link></li>
+                    <li><Link href="#" className="hover:text-[#F5DF4D] transition-colors">Instagram</Link></li>
+                  </ul>
+               </div>
+            </div>
+          </div>
+          <div className="pt-20 border-t border-[#939597]/20 text-center">
+            <p className="text-[11px] font-black uppercase tracking-[0.6em] text-[#939597]">
+              © 2026 CONECTAS DINAMIZADORA. TUDO PELO IMPACTO.
             </p>
-          </div>
-          
-          <div>
-            <h4 className="font-bold text-[12px] uppercase tracking-widest text-[#999999] mb-8">Empresa</h4>
-            <ul className="space-y-4 text-[14px] font-semibold">
-              <li><Link href="#" className="hover:text-[#F03E2F] transition-colors">Sobre</Link></li>
-              <li><Link href="#" className="hover:text-[#F03E2F] transition-colors">Blog</Link></li>
-              <li><Link href="#" className="hover:text-[#F03E2F] transition-colors">Carreiras</Link></li>
-              <li><Link href="#" className="hover:text-[#F03E2F] transition-colors">Contato</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-bold text-[12px] uppercase tracking-widest text-[#999999] mb-8">Recursos</h4>
-            <ul className="space-y-4 text-[14px] font-semibold">
-              <li><Link href="#" className="hover:text-[#F03E2F] transition-colors">Docs</Link></li>
-              <li><Link href="#" className="hover:text-[#F03E2F] transition-colors">API</Link></li>
-              <li><Link href="#" className="hover:text-[#F03E2F] transition-colors">Comunidade</Link></li>
-            </ul>
-          </div>
-        </div>
-        
-        <div className="max-w-[1440px] mx-auto pt-10 border-t border-[#F0F0F0] flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[#999999] text-[13px] font-medium tracking-tight">© 2026 Conectas Consultoria. Todos os direitos reservados.</p>
-          <div className="flex gap-10 text-[13px] font-bold">
-            <Link href="#" className="hover:text-black transition-colors">LinkedIn</Link>
-            <Link href="#" className="hover:text-black transition-colors">Twitter</Link>
-            <Link href="#" className="hover:text-black transition-colors">Instagram</Link>
           </div>
         </div>
       </footer>
