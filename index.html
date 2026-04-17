@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conectas - Cultura, Capital e Comunidade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#F5DF4D',
+                        secondary: '#CF5C78',
+                        peacock: '#00A0B0',
+                        sky: '#00589B',
+                        cloud: '#F0EEE9',
+                        gray: '#939597',
+                        willowherb: '#8F4584',
+                        spice: '#BA5B3F'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="bg-cloud text-gray font-sans selection:bg-primary selection:text-black overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-[100] bg-cloud/80 backdrop-blur-xl border-b border-gray/10">
+        <div class="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-4 group">
+                <img src="/Conectas Logo.png" alt="Conectas Logo" class="h-10 w-auto transition-transform group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                <span class="hidden font-black text-2xl tracking-tighter text-sky group-hover:text-black transition-colors uppercase">CONECTAS</span>
+            </a>
+
+            <div class="hidden lg:flex items-center gap-10 text-[11px] font-black uppercase tracking-[0.2em]">
+                <a href="#comunidade" class="hover:text-secondary transition-colors">Comunidade</a>
+                <a href="#capital" class="hover:text-primary transition-colors">Capital</a>
+                <a href="#cultura" class="hover:text-peacock transition-colors">Cultura</a>
+                <a href="#impacto" class="hover:text-willowherb transition-colors">Impacto</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="#" class="px-6 py-2 text-[12px] font-black uppercase tracking-wider border-2 border-black hover:bg-black hover:text-white transition-all rounded-full">
+                    Entrar
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-40 pb-20 px-6">
+        <div class="max-w-[1440px] mx-auto">
+            <div class="max-w-[900px]">
+                <h1 class="text-[clamp(3rem,8vw,6rem)] leading-[0.9] font-black text-black tracking-[-0.04em] mb-12 uppercase">
+                    Criando a cultura, <br />
+                    <span class="text-sky">capital e comunidade</span> <br />
+                    da nova economia.
+                </h1>
+                <p class="text-2xl md:text-3xl leading-snug font-medium text-gray max-w-[700px] mb-12">
+                    Fortalecemos iniciativas de impacto socioambiental através de um diálogo qualificado entre governos, financiadores e a sociedade.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button class="px-8 py-4 bg-primary text-black font-black uppercase tracking-widest text-sm rounded-full hover:scale-105 transition-transform flex items-center gap-2">
+                        Começar Agora
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid Pillars -->
+    <section class="py-20 px-6 border-t border-gray/10">
+        <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+            <div class="bg-white p-12 group hover:bg-primary transition-colors duration-500">
+                <div class="mb-8 text-black group-hover:scale-110 transition-transform origin-left">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <h3 class="text-3xl font-black text-black uppercase mb-4">Comunidade</h3>
+                <p class="text-lg font-medium leading-relaxed group-hover:text-black/80">
+                    Conectamos a Geração Z e criativos da moda com o propósito de transformar a economia através da colaboração radical.
+                </p>
+            </div>
+
+            <div class="bg-white p-12 group hover:bg-peacock transition-colors duration-500">
+                <div class="mb-8 text-black group-hover:text-white transition-colors group-hover:scale-110 transition-transform origin-left">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                </div>
+                <h3 class="text-3xl font-black text-black group-hover:text-white uppercase mb-4">Capital</h3>
+                <p class="text-lg font-medium leading-relaxed group-hover:text-white/80 transition-colors">
+                    Direcionamos recursos para negócios de impacto que priorizam o bem-estar social e a regeneração ambiental.
+                </p>
+            </div>
+
+            <div class="bg-white p-12 group hover:bg-secondary transition-colors duration-500">
+                <div class="mb-8 text-black group-hover:text-white transition-colors group-hover:scale-110 transition-transform origin-left">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                </div>
+                <h3 class="text-3xl font-black text-black group-hover:text-white uppercase mb-4">Cultura</h3>
+                <p class="text-lg font-medium leading-relaxed group-hover:text-white/80 transition-colors">
+                    Moldamos as narrativas da nova economia através da arte, design e inovação institucional.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="py-20 bg-gray text-white px-6">
+        <div class="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div>
+                <span class="text-[12px] font-black uppercase tracking-[0.3em] text-primary mb-6 block">Nosso Impacto</span>
+                <h2 class="text-5xl md:text-7xl font-black uppercase leading-none tracking-tighter mb-8">
+                    Diálogo qualificado <br> com o poder.
+                </h2>
+                <p class="text-xl md:text-2xl text-white/80 leading-relaxed mb-10">
+                    Articulamos parcerias estratégicas entre o terceiro setor, governos e investidores para escalar soluções reais para crises climáticas e sociais.
+                </p>
+                <div class="grid grid-cols-2 gap-8">
+                    <div class="border-l-4 border-spice pl-6 py-2">
+                        <div class="text-4xl font-black mb-1">20+</div>
+                        <div class="text-sm font-bold uppercase tracking-widest text-white/60">Projetos Ativos</div>
+                    </div>
+                    <div class="border-l-4 border-willowherb pl-6 py-2">
+                        <div class="text-4xl font-black mb-1">15M</div>
+                        <div class="text-sm font-bold uppercase tracking-widest text-white/60">Capital Mobilizado</div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="aspect-[4/5] bg-black/10 rounded-2xl overflow-hidden border border-white/10 backdrop-blur-3xl flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary animate-pulse-slow"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-20 px-6 border-t border-gray/10">
+        <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-start gap-20">
+            <div>
+                <a href="/" class="font-black text-3xl tracking-tighter text-black uppercase mb-8 block">CONECTAS</a>
+                <p class="text-gray max-w-[300px] font-medium">
+                    Transformando o futuro através do capital consciente e cultura regenerativa.
+                </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-16">
+                <div class="flex flex-col gap-4">
+                    <span class="font-black uppercase text-[11px] tracking-widest text-black">Explorar</span>
+                    <a href="#" class="text-sm hover:text-black">Manifesto</a>
+                    <a href="#" class="text-sm hover:text-black">Impacto</a>
+                    <a href="#" class="text-sm hover:text-black">Labs</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <span class="font-black uppercase text-[11px] tracking-widest text-black">Conecte-se</span>
+                    <a href="#" class="text-sm hover:text-black">LinkedIn</a>
+                    <a href="#" class="text-sm hover:text-black">Instagram</a>
+                    <a href="#" class="text-sm hover:text-black">Twitter</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <span class="font-black uppercase text-[11px] tracking-widest text-black">Legal</span>
+                    <a href="#" class="text-sm hover:text-black">Privacidade</a>
+                    <a href="#" class="text-sm hover:text-black">Termos</a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-[1440px] mx-auto mt-20 pt-10 border-t border-gray/10 text-[10px] font-bold uppercase tracking-widest flex justify-between">
+            <span>© 2024 Conectas. Todos os direitos reservados.</span>
+            <span class="text-spice">Desenvolvido para a Nova Economia</span>
+        </div>
+    </footer>
+</body>
+</html>
