@@ -2,33 +2,42 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#FDFDFC] font-sans text-[#1A1A1A] selection:bg-rose-100 selection:text-rose-900">
-      {/* Sanity-inspired Navigation */}
-      <nav className="fixed top-0 w-full z-[100] bg-white/70 backdrop-blur-xl border-b border-[#F0F0F0]">
-        <div className="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between">
+    <main className="min-h-screen bg-white font-sans text-[#1A1A1A] selection:bg-red-100 selection:text-red-900">
+      {/* Navigation (Sanity.io Style) */}
+      <nav className="fixed top-0 w-full z-[100] bg-white border-b border-[#F0F0F0]">
+        <div className="max-w-[1440px] mx-auto px-6 h-[72px] flex items-center justify-between">
           <div className="flex items-center gap-10">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 bg-[#1A1A1A] rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
-                <span className="text-white font-bold text-lg leading-none">C</span>
-              </div>
-              <span className="font-bold text-xl tracking-[-0.03em] text-[#1A1A1A]">Conectas</span>
+              {/* Use the logo provided by the user */}
+              <img 
+                src="/Conectas Logo.png" 
+                alt="Conectas Logo" 
+                className="h-8 w-auto" 
+                onError={(e) => {
+                  // Fallback to text if image fails (e.g. not in public folder yet)
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                }}
+              />
+              <span className="hidden font-bold text-xl tracking-tight text-[#1A1A1A]">Conectas</span>
             </Link>
             
-            <div className="hidden lg:flex items-center gap-8 text-[14px] font-medium text-[#666666]">
-              <Link href="#sobre" className="hover:text-[#1A1A1A] transition-colors">Produtos</Link>
-              <Link href="#solucoes" className="hover:text-[#1A1A1A] transition-colors">Soluções</Link>
-              <Link href="#clientes" className="hover:text-[#1A1A1A] transition-colors">Empresa</Link>
-              <Link href="#contato" className="hover:text-[#1A1A1A] transition-colors">Recursos</Link>
+            <div className="hidden lg:flex items-center gap-8 text-[14px] font-semibold text-[#666666]">
+              <Link href="#" className="hover:text-black transition-colors">Produtos</Link>
+              <Link href="#" className="hover:text-black transition-colors">Soluções</Link>
+              <Link href="#" className="hover:text-black transition-colors">Empresa</Link>
+              <Link href="#" className="hover:text-black transition-colors">Recursos</Link>
+              <Link href="#" className="hover:text-black transition-colors">Pricing</Link>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <button className="hidden sm:inline-flex px-4 py-2 text-[14px] font-semibold text-[#666666] hover:text-[#1A1A1A] transition-colors">
+          <div className="flex items-center gap-4">
+            <button className="hidden sm:inline-flex px-4 py-2 text-[14px] font-bold text-[#1A1A1A] hover:bg-gray-50 rounded-lg transition-colors">
               Log in
             </button>
             <Link 
               href="/login" 
-              className="inline-flex items-center justify-center bg-[#F03E2F] text-white px-6 py-2.5 rounded-full text-[14px] font-bold hover:bg-[#D63528] active:scale-95 transition-all shadow-lg shadow-rose-500/20"
+              className="inline-flex items-center justify-center bg-[#F03E2F] text-white px-6 py-2.5 rounded-lg text-[14px] font-bold hover:bg-[#D63528] active:scale-[0.98] transition-all shadow-sm"
             >
               Entrar
             </Link>
@@ -36,146 +45,118 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero: Bold and Impactful */}
-      <section className="relative pt-40 pb-24 md:pt-56 md:pb-40 overflow-hidden">
-        {/* Subtle Background Glows */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none z-0">
-          <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-rose-100/40 rounded-full blur-[120px]" />
-          <div className="absolute top-[-5%] left-[-10%] w-[500px] h-[500px] bg-orange-50/50 rounded-full blur-[100px]" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-2 bg-[#F7F7F7] border border-[#EEEEEE] rounded-full px-4 py-1.5 mb-10 animate-fade-in">
-            <span className="text-[12px] font-bold text-[#666666] uppercase tracking-wider">Conectas AI is now in Beta</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
+      {/* Hero Section: Minimalist & High Contrast */}
+      <section className="relative pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-6 flex flex-col items-center text-center">
+          <div className="inline-flex items-center gap-2 bg-[#F7F7F7] border border-[#EEEEEE] rounded-full px-4 py-1.5 mb-8 animate-fade-in">
+            <span className="text-[12px] font-bold text-[#666666] uppercase tracking-wider">Conectas Enterprise v3.0</span>
+            <div className="w-1 h-1 rounded-full bg-[#F03E2F]" />
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-black text-[#1A1A1A] leading-[0.95] mb-10 max-w-5xl tracking-[-0.05em]">
-            Relações que <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F03E2F] to-[#7B2CBF]">conectam</span> dados a decisões.
+          <h1 className="text-[56px] md:text-[92px] font-black text-[#1A1A1A] leading-[0.95] mb-8 max-w-[1000px] tracking-[-0.04em]">
+            A base de dados para o seu <span className="text-[#F03E2F]">Impacto.</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-[#666666] max-w-3xl mb-14 leading-relaxed font-medium tracking-[-0.02em]">
-            A primeira plataforma de Stakeholder Mapping que une inteligência artificial e análise regulatória profunda para o novo mercado brasileiro.
+          <p className="text-xl md:text-2xl text-[#666666] max-w-2xl mb-12 leading-relaxed font-medium tracking-tight">
+            Navegue no cenário regulatório, mapeie stakeholders e direcione capital com a inteligência que o novo mercado brasileiro exige.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-5">
-            <Link href="/login" className="bg-[#1A1A1A] text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-black hover:scale-[1.02] active:scale-95 transition-all shadow-2xl shadow-black/10">
-              Começar agora
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link href="/login" className="bg-[#1A1A1A] text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-black transition-all">
+              Começar Agora
             </Link>
-            <button className="bg-white border-2 border-[#EBEBEB] text-[#1A1A1A] px-10 py-5 rounded-2xl font-bold text-lg hover:border-[#CCCCCC] transition-all">
-              Ver Demo
+            <button className="bg-white border border-[#EBEBEB] text-[#1A1A1A] px-10 py-5 rounded-xl font-bold text-lg hover:border-[#CCCCCC] transition-all">
+              Ver Demonstração
             </button>
+          </div>
+        </div>
+
+        {/* Subtle Visual Element (like Sanity's grid/blobs) */}
+        <div className="mt-20 max-w-5xl mx-auto px-6">
+          <div className="aspect-[16/9] bg-[#F9F9F9] rounded-[40px] border border-[#F0F0F0] shadow-inner relative overflow-hidden group">
+             {/* Mock Dashboard Representation */}
+             <div className="absolute inset-10 bg-white rounded-2xl shadow-2xl border border-[#F0F0F0] p-8 transition-transform group-hover:scale-[1.01] duration-500">
+                <div className="flex gap-4 mb-6">
+                   <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+                   <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
+                   <div className="w-3 h-3 rounded-full bg-[#28C840]" />
+                </div>
+                <div className="space-y-4">
+                   <div className="h-8 w-1/3 bg-[#F7F7F7] rounded-lg" />
+                   <div className="grid grid-cols-3 gap-4">
+                      <div className="h-32 bg-[#F7F7F7] rounded-xl" />
+                      <div className="h-32 bg-[#F7F7F7] rounded-xl" />
+                      <div className="h-32 bg-[#F7F7F7] rounded-xl" />
+                   </div>
+                </div>
+             </div>
           </div>
         </div>
       </section>
 
-      {/* Feature Grid: Sanity Card Style */}
+      {/* Feature Grid: Clean & Modular */}
       <section className="py-32 px-6 bg-white border-t border-[#F0F0F0]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-20 items-end mb-24">
-            <h2 className="text-4xl md:text-5xl font-black tracking-[-0.04em] leading-tight">
-              Uma nova arquitetura para <br />
-              <span className="text-[#666666]">Impact Investing e Public Affairs.</span>
-            </h2>
-            <p className="text-[#666666] text-xl font-medium leading-relaxed max-w-md pb-2">
-              Não apenas dados. Estrutura. Flexibilidade total para moldar suas estratégias de influência e governança.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
+        <div className="max-w-[1440px] mx-auto">
+          <div className="grid lg:grid-cols-3 gap-12">
             {[
-              { title: 'Public Affairs v3', desc: 'Sua estratégia legislativa como código. Monitoramento em tempo real com alertas de risco.', icon: '⚡' },
-              { title: 'Stakeholder Graph', desc: 'Mapeie conexões que outros ignoram. Visualize influências e pontes institucionais.', icon: '🕸️' },
-              { title: 'Impact Engine', desc: 'Transforme ESG em retorno financeiro real através de ativos sociais estruturados.', icon: '💎' }
+              { title: 'Public Affairs', desc: 'Monitoramento automatizado de processos legislativos com análise de risco integrada.', icon: '⚡' },
+              { title: 'Stakeholder Graph', desc: 'Identifique os verdadeiros centros de influência em tempo real através de grafos relacionais.', icon: '🕸️' },
+              { title: 'Impact Intelligence', desc: 'Aceleramos sua tomada de decisão em investimentos de impacto com dados estruturados.', icon: '📈' }
             ].map((feature, i) => (
-              <div key={i} className="group relative p-10 rounded-[32px] bg-[#F9F9F9] hover:bg-white border border-[#F0F0F0] hover:border-white hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] transition-all duration-500">
-                <div className="text-4xl mb-8 group-hover:scale-110 transition-transform">{feature.icon}</div>
-                <h3 className="text-2xl font-bold mb-4 tracking-[-0.02em]">{feature.title}</h3>
-                <p className="text-[#666666] font-medium leading-relaxed mb-8">{feature.desc}</p>
-                <div className="h-1.5 w-0 group-hover:w-full bg-[#1A1A1A] transition-all duration-500 rounded-full" />
+              <div key={i} className="group p-8 rounded-3xl hover:bg-[#F9F9F9] transition-all duration-300">
+                <div className="text-4xl mb-6">{feature.icon}</div>
+                <h3 className="text-2xl font-bold mb-4 tracking-tight">{feature.title}</h3>
+                <p className="text-[#666666] leading-relaxed mb-6 font-medium">{feature.desc}</p>
+                <Link href="#" className="text-black font-bold text-sm inline-flex items-center gap-2">
+                  Saiba mais <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </Link>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Content Section: Detailed Usability */}
-      <section className="py-32 bg-[#1A1A1A] text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-20 items-center">
-            <div className="flex-1 space-y-8">
-              <span className="text-[#F03E2F] font-bold text-sm uppercase tracking-widest">Usabilidade sem compromisso</span>
-              <h2 className="text-4xl md:text-6xl font-black tracking-[-0.04em] leading-[0.95]">
-                Desenhado para o <br /> decision-maker moderno.
-              </h2>
-              <p className="text-[#999999] text-xl font-medium leading-relaxed">
-                Interfaces limpas, dashboards intuitivos e exportações instantâneas. Reduzimos o ruído para você focar no que importa: o impacto.
-              </p>
-              <div className="pt-6">
-                <Link href="/login" className="inline-flex items-center gap-2 bg-[#333333] hover:bg-[#444444] px-8 py-4 rounded-full font-bold transition-all">
-                  Explorar a plataforma <span>→</span>
-                </Link>
-              </div>
-            </div>
-            <div className="flex-1 relative">
-              <div className="w-full aspect-square bg-gradient-to-br from-[#F03E2F] to-[#7B2CBF] rounded-[40px] rotate-3 opacity-20 absolute inset-0 blur-3xl" />
-              <div className="relative bg-[#262626] rounded-3xl p-8 border border-[#333333] shadow-2xl">
-                {/* Mock UI Elements */}
-                <div className="space-y-4">
-                  <div className="h-4 w-1/3 bg-[#333333] rounded-full" />
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="h-32 bg-[#333333] rounded-2xl animate-pulse" />
-                    <div className="h-32 bg-[#333333] rounded-2xl" />
-                  </div>
-                  <div className="h-4 w-full bg-[#333333] rounded-full" />
-                  <div className="h-4 w-3/4 bg-[#333333] rounded-full" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer: Clean & Professional */}
+      {/* Footer */}
       <footer className="bg-white py-24 px-6 border-t border-[#F0F0F0]">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
-          <div className="space-y-6">
+        <div className="max-w-[1440px] mx-auto grid md:grid-cols-4 gap-16 mb-20">
+          <div className="col-span-1 md:col-span-2 space-y-6">
             <Link href="/" className="flex items-center gap-2">
               <div className="w-8 h-8 bg-[#1A1A1A] rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">C</span>
+                <span className="text-white font-bold text-lg leading-none">C</span>
               </div>
               <span className="font-bold text-xl tracking-tight text-[#1A1A1A]">Conectas</span>
             </Link>
             <p className="max-w-xs text-[#666666] font-medium leading-relaxed">
-              Transformando a complexidade em clareza estratégica.
+              Transformando a forma como organizações brasileiras se posicionam e geram impacto.
             </p>
           </div>
           
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-16">
-            <div className="space-y-6">
-              <h4 className="font-bold text-xs uppercase tracking-widest text-[#999999]">Plataforma</h4>
-              <ul className="space-y-4 text-[14px] font-semibold">
-                <li><Link href="#" className="hover:text-rose-600 transition-colors">Funcionalidades</Link></li>
-                <li><Link href="#" className="hover:text-rose-600 transition-colors">Pricing</Link></li>
-                <li><Link href="#" className="hover:text-rose-600 transition-colors">Suporte</Link></li>
-              </ul>
-            </div>
-            <div className="space-y-6">
-              <h4 className="font-bold text-xs uppercase tracking-widest text-[#999999]">Empresa</h4>
-              <ul className="space-y-4 text-[14px] font-semibold">
-                <li><Link href="#" className="hover:text-rose-600 transition-colors">Sobre</Link></li>
-                <li><Link href="#" className="hover:text-rose-600 transition-colors">Blog</Link></li>
-                <li><Link href="#" className="hover:text-rose-600 transition-colors">Contato</Link></li>
-              </ul>
-            </div>
+          <div>
+            <h4 className="font-bold text-[12px] uppercase tracking-widest text-[#999999] mb-8">Empresa</h4>
+            <ul className="space-y-4 text-[14px] font-semibold">
+              <li><Link href="#" className="hover:text-[#F03E2F] transition-colors">Sobre</Link></li>
+              <li><Link href="#" className="hover:text-[#F03E2F] transition-colors">Blog</Link></li>
+              <li><Link href="#" className="hover:text-[#F03E2F] transition-colors">Carreiras</Link></li>
+              <li><Link href="#" className="hover:text-[#F03E2F] transition-colors">Contato</Link></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="font-bold text-[12px] uppercase tracking-widest text-[#999999] mb-8">Recursos</h4>
+            <ul className="space-y-4 text-[14px] font-semibold">
+              <li><Link href="#" className="hover:text-[#F03E2F] transition-colors">Docs</Link></li>
+              <li><Link href="#" className="hover:text-[#F03E2F] transition-colors">API</Link></li>
+              <li><Link href="#" className="hover:text-[#F03E2F] transition-colors">Comunidade</Link></li>
+            </ul>
           </div>
         </div>
         
-        <div className="max-w-7xl mx-auto pt-16 mt-16 border-t border-[#F0F0F0] flex flex-col sm:flex-row justify-between items-center gap-6">
-          <p className="text-[#999999] text-[13px] font-medium">© 2026 Conectas Consultoria de Impacto. São Paulo, Brasil.</p>
-          <div className="flex gap-8 text-[13px] font-bold">
-            <Link href="#" className="hover:text-[#1A1A1A] transition-colors">Twitter</Link>
-            <Link href="#" className="hover:text-[#1A1A1A] transition-colors">LinkedIn</Link>
+        <div className="max-w-[1440px] mx-auto pt-10 border-t border-[#F0F0F0] flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-[#999999] text-[13px] font-medium tracking-tight">© 2026 Conectas Consultoria. Todos os direitos reservados.</p>
+          <div className="flex gap-10 text-[13px] font-bold">
+            <Link href="#" className="hover:text-black transition-colors">LinkedIn</Link>
+            <Link href="#" className="hover:text-black transition-colors">Twitter</Link>
+            <Link href="#" className="hover:text-black transition-colors">Instagram</Link>
           </div>
         </div>
       </footer>
